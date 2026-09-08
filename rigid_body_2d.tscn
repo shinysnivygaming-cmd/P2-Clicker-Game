@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://d4dme2xl2f0bn"]
+
+[ext_resource type="Texture2D" uid="uid://cby3hvauggch1" path="res://Animated Coins.png" id="1_wltir"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p1di"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jiowd"]
+atlas = ExtResource("1_wltir")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x7xp"]
+atlas = ExtResource("1_wltir")
+region = Rect2(16, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80516"]
+atlas = ExtResource("1_wltir")
+region = Rect2(32, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqaj3"]
+atlas = ExtResource("1_wltir")
+region = Rect2(48, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y03ms"]
+atlas = ExtResource("1_wltir")
+region = Rect2(64, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkoub"]
+atlas = ExtResource("1_wltir")
+region = Rect2(80, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uugg"]
+atlas = ExtResource("1_wltir")
+region = Rect2(96, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bayp2"]
+atlas = ExtResource("1_wltir")
+region = Rect2(112, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qo5g7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jiowd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x7xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80516")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqaj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y03ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkoub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uugg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bayp2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=2101201806]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1234852994]
+shape = SubResource("CircleShape2D_7p1di")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=512407792]
+sprite_frames = SubResource("SpriteFrames_qo5g7")
+frame_progress = 0.9893652
