@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dsgh62w4omvu7"]
 
-[ext_resource type="Texture2D" uid="uid://b0dtpv12cdcby" path="res://icon.svg" id="1_62e2m"]
 [ext_resource type="Script" uid="uid://clgin4d6udk07" path="res://game_manager.gd" id="1_qtu10"]
+[ext_resource type="Texture2D" uid="uid://creouojn5comw" path="res://Pickaxe.png" id="2_qtu10"]
+[ext_resource type="Texture2D" uid="uid://kmkfadmdmpdk" path="res://Gold Mine.jpg" id="3_qtu10"]
+[ext_resource type="Texture2D" uid="uid://bndkb18shaawi" path="res://Final Screen.png" id="4_ee4bf"]
 
 [node name="Game" type="Control" unique_id=1999847388]
 layout_mode = 3
@@ -10,31 +12,123 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_qtu10")
 power = 1
-metadata/_edit_horizontal_guides_ = [-23754.0]
+metadata/_edit_horizontal_guides_ = [-23754.0, -482.0]
+
+[node name="Buy a Win Button" type="Button" parent="." unique_id=1361053703]
+top_level = true
+layout_mode = 0
+offset_left = 911.0
+offset_top = 380.0
+offset_right = 1079.0
+offset_bottom = 429.0
+text = "1000 c: Buy the Win"
 
 [node name="ClickerButton" type="Button" parent="." unique_id=1091990086]
+top_level = true
 layout_mode = 0
-offset_left = 289.0
-offset_top = 154.0
-offset_right = 425.0
-offset_bottom = 290.0
-icon = ExtResource("1_62e2m")
+offset_left = 514.0
+offset_top = 246.0
+offset_right = 650.0
+offset_bottom = 382.0
+icon = ExtResource("2_qtu10")
 
 [node name="Upgrade Button" type="Button" parent="ClickerButton" unique_id=959312378]
+top_level = true
 layout_mode = 0
-offset_left = 11.0
-offset_top = 159.0
-offset_right = 128.0
-offset_bottom = 190.0
-text = "Upgrade Shop"
+offset_left = 937.0
+offset_top = 515.0
+offset_right = 1054.0
+offset_bottom = 565.0
+text = "15 c: +1 Str"
+
+[node name="Auto Upgrade Button" type="Button" parent="ClickerButton" unique_id=1180829290]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 201.0
+offset_right = 565.0
+offset_bottom = 252.0
+text = "50 c: 1 Auto Clicker"
+
+[node name="Timer" type="Timer" parent="ClickerButton/Auto Upgrade Button" unique_id=2028358590]
+autostart = true
+
+[node name="Debug Infinite Money" type="Button" parent="ClickerButton" unique_id=1127456415]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.309
+anchor_top = -0.279
+anchor_right = -2.309
+anchor_bottom = -0.279
+offset_left = -198.97601
+offset_top = -208.056
+offset_right = -103.97601
+offset_bottom = -118.056
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_pressed_color = Color(1, 1, 0, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_hover_pressed_color = Color(1, 1, 1, 0)
+theme_override_colors/icon_disabled_color = Color(1, 1, 1, 0)
 
 [node name="CoinLabel" type="Label" parent="." unique_id=687640869]
+top_level = true
 layout_mode = 0
-offset_left = 465.0
-offset_top = 180.0
-offset_right = 518.0
-offset_bottom = 203.0
+offset_left = 545.0
+offset_top = 395.0
+offset_right = 627.0
+offset_bottom = 430.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Coin: 0"
 
+[node name="StrengthLabel" type="Label" parent="." unique_id=717226041]
+top_level = true
+layout_mode = 0
+offset_left = 507.0
+offset_top = 429.0
+offset_right = 661.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="AutoLabel" type="Label" parent="." unique_id=1671862052]
+top_level = true
+layout_mode = 0
+offset_left = 493.0
+offset_top = 464.0
+offset_right = 676.0
+offset_bottom = 499.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Mine Background" type="TextureRect" parent="." unique_id=441729147]
+visibility_layer = 2
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 1158.0
+offset_bottom = 660.0
+texture = ExtResource("3_qtu10")
+
+[node name="You Win" type="TextureRect" parent="." unique_id=2141387083]
+visible = false
+top_level = true
+layout_mode = 0
+offset_left = -8.0
+offset_top = 5.0
+offset_right = 1169.0
+offset_bottom = 661.0
+texture = ExtResource("4_ee4bf")
+expand_mode = 1
+
+[connection signal="button_down" from="Buy a Win Button" to="." method="_on_buy_a_win_button_button_down"]
 [connection signal="pressed" from="ClickerButton" to="." method="_on_button_down"]
 [connection signal="button_down" from="ClickerButton/Upgrade Button" to="." method="_on_upgrade_button_button_down"]
+[connection signal="button_down" from="ClickerButton/Auto Upgrade Button" to="." method="_on_auto_upgrade_button_button_down"]
+[connection signal="timeout" from="ClickerButton/Auto Upgrade Button/Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="ClickerButton/Debug Infinite Money" to="." method="_on_debug_infinite_money_button_down"]
